@@ -14,60 +14,149 @@ iv)To perform the color conversion between RGB, BGR, HSV, and YCbCr color models
 ## Software Required:
 Anaconda - Python 3.7
 ## Algorithm:
-### Step1:
-Choose an image and save it as a filename.jpg ,
-### Step2:
-Use imread(filename, flags) to read the file.
-### Step3:
-Use imshow(window_name, image) to display the image.
-### Step4:
-Use imwrite(filename, image) to write the image.
-### Step5:
-End the program and close the output image windows.
-### Step6:
-Convert BGR and RGB to HSV and GRAY
-### Step7:
-Convert HSV to RGB and BGR
-### Step8:
-Convert RGB and BGR to YCrCb
-### Step9:
-Split and Merge RGB Image
-### Step10:
-Split and merge HSV Image
+### Step1:Choose an image and save it as a filename.jpg ,
+### Step2:Use imread(filename, flags) to read the file.
+### Step3:Use imshow(window_name, image) to display the image.
+### Step4:Use imwrite(filename, image) to write the image.
+### Step5:End the program and close the output image windows.
+### Step6:Convert BGR and RGB to HSV and GRAY
+### Step7:Convert HSV to RGB and BGR
+### Step8:Convert RGB and BGR to YCrCb
+### Step9:Split and Merge RGB Image
+### Step10:Split and merge HSV Image
 
 ##### Program:
-### Developed By:
-### Register Number: 
+```
+### Developed By:VASUNDRA SRI R
+### Register Number: 212222230168
+```
+<table>
+  <tr>
+    <td width=50%>
 
-
-## Output:
 
 ### i) Read and display the image
+```Python
+    import cv2
+    image=cv2.imread('vasundra.jpg',1)
+    image=cv2.resize(image,(400,300))
+    cv2.imshow('vasundra',image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+```
+  </td>
+  <td>
 
-<br>
-<br>
+### OUTPUT:
+![vasundra](https://github.com/vasundrasriravi/COLOR_CONVERSIONS_OF-IMAGE/assets/119393983/d0bb2e26-8984-43fc-9baa-f6059c70c20a)
+</td>
+</tr>
+
+
+<tr>
+  <td width=50%>
+
 
 ### ii)Write the image
+```Python
+    import cv2
+    image=cv2.imread('vasundra.jpg',0)
+    cv2.imwrite('nature.jpg',image)
+```
+  </td>
+  <td>
 
-<br>
-<br>
+### OUTPUT:
+![dipt2](https://github.com/vasundrasriravi/COLOR_CONVERSIONS_OF-IMAGE/assets/119393983/2d635bfe-06fd-457a-9909-d65dfc160d77)
+</td>
+</tr>
+<tr>
+  <td width=50%>
 
 ### iii)Shape of the Image
+```Python
+    import cv2
+    image=cv2.imread('vasundra.jpg',1)
+    print(image.shape)
+```
+  </td>
+  <td>
 
-<br>
-<br>
+### OUTPUT:
+![dipt3](https://github.com/vasundrasriravi/COLOR_CONVERSIONS_OF-IMAGE/assets/119393983/cbfd9b7d-0fdd-4a3f-896e-1089600f4aea)
+</td>
+</tr>
+<tr>
+<td>
 
 ### iv)Access rows and columns
-<br>
-<br>
+```Python
+import random
+import cv2
+image=cv2.imread('vasundra.jpg',1)
+image=cv2.resize(image,(400,400))
+for i in range (150,200):
+ for j in range(image.shape[1]):
+  image[i][j]=[random.randint(0,255),
+               random.randint(0,255),
+               random.randint(0,255)] 
+cv2.imshow('part image',image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+  </td>
+  <td width="50%">
+
+### OUTPUT:
+![dipt4](https://github.com/vasundrasriravi/COLOR_CONVERSIONS_OF-IMAGE/assets/119393983/ba14cc07-6514-4560-ad5c-c5c5996e0200)
+</td>
+</tr>
+<tr>
+ <td width=50%>
 
 ### v)Cut and paste portion of image
-<br>
-<br>
+```Python
+import cv2
+image=cv2.imread('vasundra.jpg',1)
+image=cv2.resize(image,(400,400))
+tag =image[150:200,110:160]
+image[110:160,150:200] = tag
+cv2.imshow('partimage1',image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+  </td>
+  <td>
+
+### OUTPUT:
+![dipt5](https://github.com/vasundrasriravi/COLOR_CONVERSIONS_OF-IMAGE/assets/119393983/6950253f-9e7d-473d-9995-04a02ee3e0ab)
+</td>
+</tr>
+</table>
 
 ### vi) BGR and RGB to HSV and GRAY
-<br>
-<br>
+```Python
+    import cv2
+    img = cv2.imread('vasundra.jpg',1)
+    img = cv2.resize(img,(300,200))
+    cv2.imshow('Original Image',img)
+
+    hsv1 = cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
+    cv2.imshow('BGR2HSV',hsv1)
+
+    hsv2 = cv2.cvtColor(img,cv2.COLOR_RGB2HSV)
+    cv2.imshow('RGB2HSV',hsv2)
+
+    gray1 = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+    cv2.imshow('BGR2GRAY',gray1)
+
+    gray2 = cv2.cvtColor(img,cv2.COLOR_RGB2GRAY)
+    cv2.imshow('RGB2GRAY',gray2)
+
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+```
+#### OUTPUT:
 
 ### vii) HSV to RGB and BGR
 <br>
